@@ -378,7 +378,7 @@ class Piece(pygame.sprite.Sprite):
         for pawn in grid.pawns:
             if self.pos == pawn.pos and self != pawn:
                 if isinstance(pawn, King):
-                    self.win = self.teams[self.turn].name
+                    grid.win = "blanc" if self.color else "noir"
                 capture = True
                 pawn.move(Position(randint(0, 7), randint(0, 7)), grid, next_turn=False)
                 if grid.sound and next_turn : capture_sound.play()
